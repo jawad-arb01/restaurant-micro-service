@@ -5,6 +5,8 @@ import com.arbahi.repasservice.services.RepasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/repas")
 @RequiredArgsConstructor
@@ -19,6 +21,11 @@ public class RepasController {
     @GetMapping("/{id}")
     public Repas getRepasById(@PathVariable Long id) {
         return repasService.getRepasById(id);
+    }
+
+    @GetMapping
+    public List<Repas> getAllRepas() {
+        return repasService.getAllRepas();
     }
 
     @DeleteMapping("/{id}")

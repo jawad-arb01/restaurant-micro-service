@@ -5,6 +5,8 @@ import com.arbahi.repasservice.repositories.RepasRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class RepasService {
@@ -16,6 +18,10 @@ public class RepasService {
 
     public Repas getRepasById(Long id) {
         return repasRepository.findById(id).orElseThrow(() -> new RuntimeException("Repas not found"));
+    }
+
+    public List<Repas> getAllRepas() {
+        return repasRepository.findAll();
     }
 
     public void deleteRepas(Long id) {
