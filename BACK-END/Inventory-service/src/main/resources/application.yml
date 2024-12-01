@@ -1,0 +1,14 @@
+server:
+  port: 9092
+
+spring:
+  application:
+    name: inventory-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/inventory
+      host: localhost
+      port: 27017
+      database: inventory
+      repositories:
+        enabled: true
