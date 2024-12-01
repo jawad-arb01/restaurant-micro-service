@@ -1,6 +1,8 @@
 package com.arbahi.clientservice.services;
 
 import com.arbahi.clientservice.entities.Client;
+import com.arbahi.clientservice.entities.Repas;
+import com.arbahi.clientservice.feignClient.RepasFeignClient;
 import com.arbahi.clientservice.repositories.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import java.util.List;
 public class ClientService {
 
     private final ClientRepository clientRepository;
+    private final RepasFeignClient repasFeignClient;
 
     public Client createClient(Client client) {
         return clientRepository.save(client);
@@ -32,6 +35,14 @@ public class ClientService {
         existingClient.setPhone(updatedClient.getPhone());
         existingClient.setAddress(updatedClient.getAddress());
         return clientRepository.save(existingClient);
+    }
+
+    public Repas getMealDetails(Long repasId) {
+        return repasFeignClient.getRepasById(repasId);
+    }
+
+    public List<Repas> getAllMeals() {
+        return repasFeignClient.getALlRepas();
     }
 
     public void deleteClient(Long id) {
