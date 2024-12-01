@@ -1,6 +1,7 @@
 package com.arbahi.clientservice.controllers;
 
 import com.arbahi.clientservice.entities.Client;
+import com.arbahi.clientservice.entities.Repas;
 import com.arbahi.clientservice.services.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,16 @@ public class ClientController {
     @PutMapping("/{id}")
     public Client updateClient(@PathVariable Long id, @RequestBody Client client) {
         return clientService.updateClient(id, client);
+    }
+
+    @GetMapping("/order/{repasId}")
+    public Repas getMealDetails(@PathVariable Long repasId) {
+        return clientService.getMealDetails(repasId);
+    }
+
+    @GetMapping("/getAllRepas")
+    public List<Repas> getAllMeals() {
+        return clientService.getAllMeals();
     }
 
     @DeleteMapping("/{id}")
