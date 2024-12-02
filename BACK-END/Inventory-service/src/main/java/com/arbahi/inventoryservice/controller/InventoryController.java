@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -23,7 +24,7 @@ public class InventoryController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Inventory> getItemById(@PathVariable Long id) {
+    public ResponseEntity<Inventory> getItemById(@PathVariable String id) {
         Optional<Inventory> item = inventoryService.getItemById(id);
         return item.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -35,14 +36,19 @@ public class InventoryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Inventory> updateItem(@PathVariable Long id, @RequestBody Inventory inventoryItem) {
+    public ResponseEntity<Inventory> updateItem(@PathVariable String id, @RequestBody Inventory inventoryItem) {
         Inventory updatedItem = inventoryService.updateItem(id, inventoryItem);
         return ResponseEntity.ok(updatedItem);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteItem(@PathVariable String id) {
         inventoryService.deleteItem(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/decrease-ingredients")
+    public void decreaseIngredientQuantities(@RequestBody Map<String, Integer> ingredients) {
+        inventoryService.decreaseQuantities(ingredients);
     }
 }
