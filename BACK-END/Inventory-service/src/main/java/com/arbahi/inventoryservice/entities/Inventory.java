@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 public class Inventory {
     @Id
-    private Long id;  // MongoDB uses String as the default type for the id
+    private String id;
     private String name;
     private Integer quantity;
 }

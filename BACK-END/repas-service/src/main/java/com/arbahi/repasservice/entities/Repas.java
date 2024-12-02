@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Entity
@@ -21,5 +22,5 @@ public class Repas {
     private String name;
     @ElementCollection
     @Column(nullable = false)
-    private List<String> ingredients;
+    private Map<String,Integer> ingredients;
 }
