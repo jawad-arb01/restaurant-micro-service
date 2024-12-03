@@ -1,5 +1,6 @@
 package com.arbahi.clientservice.services;
 
+import com.arbahi.clientservice.dtos.ClientRepasDTO;
 import com.arbahi.clientservice.entities.Client;
 import com.arbahi.clientservice.entities.Repas;
 import com.arbahi.clientservice.feignClient.RepasFeignClient;
@@ -37,8 +38,10 @@ public class ClientService {
         return clientRepository.save(existingClient);
     }
 
-    public Repas getMealDetails(Long repasId) {
-        return repasFeignClient.getRepasById(repasId);
+    public ClientRepasDTO getClientAndMealDetails(Long clientId, Long repasId) {
+        Client client = getClientById(clientId);
+        Repas repas = repasFeignClient.getRepasById(repasId);
+        return new ClientRepasDTO(client, repas);
     }
 
     public List<Repas> getAllMeals() {

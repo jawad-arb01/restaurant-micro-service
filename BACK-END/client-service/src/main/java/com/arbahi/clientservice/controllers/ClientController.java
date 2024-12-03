@@ -1,5 +1,6 @@
 package com.arbahi.clientservice.controllers;
 
+import com.arbahi.clientservice.dtos.ClientRepasDTO;
 import com.arbahi.clientservice.entities.Client;
 import com.arbahi.clientservice.entities.Repas;
 import com.arbahi.clientservice.services.ClientService;
@@ -35,9 +36,9 @@ public class ClientController {
         return clientService.updateClient(id, client);
     }
 
-    @GetMapping("/order/{repasId}")
-    public Repas getMealDetails(@PathVariable Long repasId) {
-        return clientService.getMealDetails(repasId);
+    @GetMapping("/{clientId}/order/{repasId}")
+    public ClientRepasDTO getClientAndMealDetails(@PathVariable Long clientId, @PathVariable Long repasId) {
+        return clientService.getClientAndMealDetails(clientId, repasId);
     }
 
     @GetMapping("/getAllRepas")
