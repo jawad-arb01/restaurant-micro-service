@@ -22,11 +22,11 @@ jobs:
     steps:
       # Step 1: Check out the code
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Step 2: Set up JDK (Assuming Spring Boot uses Java)
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'adoptopenjdk'
