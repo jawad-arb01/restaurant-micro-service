@@ -49,10 +49,10 @@ const Page = () => {
   const handleTestRepasPost = async () => {
     try {
       const newRepas: Repas = {
-        id: faker.datatype.number(),
+        id: faker.number.int({min: 1 , max: 5}),
         name: faker.commerce.productName(),
         ingredients: {
-          [faker.commerce.productAdjective()]: faker.datatype.number({ min: 1, max: 5 }),
+          [faker.commerce.productAdjective()]: faker.number.int({ min: 1, max: 5 }),
         },
       };
       const repas = await createRepas(newRepas);
@@ -76,7 +76,7 @@ const Page = () => {
     try {
       const newItem: Inventory = {
         name: faker.commerce.productName(),
-        quantity: faker.datatype.number({ min: 1, max: 100 }),
+        quantity: faker.number.int({ min: 1, max: 100 }),
       };
       const item = await createItem(newItem);
       setInventoryResult(JSON.stringify(item, null, 2));
