@@ -23,18 +23,21 @@ jobs:
 
       # Step 3: Navigate to the frontend folder and install dependencies
       - name: Install dependencies
-        run: npm install
-        working-directory: ./frontend
+        run: |
+          cd frontend
+          npm install
 
       # Step 4: Build the project
       - name: Build the project
-        run: npm run build
-        working-directory: ./frontend
+        run: |
+          cd frontend
+          npm run build
 
       # Step 5: Run tests
       - name: Run tests
-        run: npm run test
-        working-directory: ./frontend
+        run: |
+          cd frontend
+          npm run test
 
       # Step 6: Deploy to Vercel (only if the build and tests pass)
       - name: Deploy to Vercel
@@ -42,4 +45,5 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Set your Vercel token in GitHub Secrets
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # Set your Vercel project ID in GitHub Secrets
-          working-directory: ./frontend
+        env:
+          WORKING_DIRECTORY: ./frontend
