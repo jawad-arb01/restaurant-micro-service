@@ -1,7 +1,7 @@
 const API_BASE_URL = process.env.api_url + "/repas";
 
 // Define TypeScript interfaces for the entities
-interface Repas {
+export interface Repas {
   id?: number; // Optional for creation
   name: string;
   ingredients: Record<string, number>;
