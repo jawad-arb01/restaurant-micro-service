@@ -20,6 +20,8 @@ jobs:
         with:
           node-version: 22
           cache: "npm"
+          cache-dependency-path: './front-app/package-lock.json'
+
 
       # Step 3: Install dependencies
       - name: Install dependencies
