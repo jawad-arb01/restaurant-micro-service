@@ -6,9 +6,5 @@ spring:
     name: inventory-service
   data:
     mongodb:
-      uri: mongodb://localhost:27017/inventory
-      host: localhost
-      port: 27017
+      uri: mongodb+srv://jawadarbahi001:u5D075UPE6KvQ2wv@cluster0.zdoot.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: inventory
-      repositories:
-        enabled: true

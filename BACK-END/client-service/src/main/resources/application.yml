@@ -4,9 +4,9 @@ spring:
   application:
     name: client-service
   datasource:
-    url: jdbc:mysql://localhost:3306/clients?createDatabaseIfNotExist=true
+    url: jdbc:mysql://autorack.proxy.rlwy.net:13895/railway
     username: root
-    password: rootpass1234
+    password: ovBQjyjkWAndDkAeMpIspSSJWPJiFOmi
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
