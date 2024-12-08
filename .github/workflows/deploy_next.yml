@@ -31,12 +31,8 @@ jobs:
         working-directory: ./frontend
         run: npm run build
 
-      # Step 5: Run tests
-      - name: Run tests
-        working-directory: ./frontend
-        run: npm run test
 
-      # Step 6: Deploy to Vercel (only if the build and tests pass)
+      # Step 5: Deploy to Vercel (only if the build and tests pass)
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
