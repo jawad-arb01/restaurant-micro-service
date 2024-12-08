@@ -18,32 +18,28 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22 # Specify the Node.js version
+          node-version: 22
           cache: "npm"
 
-      # Step 3: Navigate to the frontend folder and install dependencies
+      # Step 3: Install dependencies
       - name: Install dependencies
-        run: |
-          cd frontend
-          npm install
+        working-directory: ./frontend
+        run: npm install
 
       # Step 4: Build the project
       - name: Build the project
-        run: |
-          cd frontend
-          npm run build
+        working-directory: ./frontend
+        run: npm run build
 
       # Step 5: Run tests
       - name: Run tests
-        run: |
-          cd frontend
-          npm run test
+        working-directory: ./frontend
+        run: npm run test
 
       # Step 6: Deploy to Vercel (only if the build and tests pass)
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Set your Vercel token in GitHub Secrets
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # Set your Vercel project ID in GitHub Secrets
-        env:
-          WORKING_DIRECTORY: ./frontend
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./frontend
