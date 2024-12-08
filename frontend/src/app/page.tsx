@@ -89,7 +89,7 @@ const Page = () => {
     <div className="flex justify-evenly items-center h-screen">
       {/* Div 1: Client Testing */}
       <div className="w-[31vw] h-[95vh] rounded-lg bg-red-500 text-white font-bold flex flex-col justify-center items-center p-4">
-        <h2>Client API</h2>
+        <h2>Client API {process.env.api_url}</h2>
         <button
           className="bg-white text-red-500 p-2 rounded mt-4"
           onClick={handleTestClientGetAll}
