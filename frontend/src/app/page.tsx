@@ -7,6 +7,7 @@ import { createRepas, getRepasById, getAllRepas, Repas } from "../lib/repas";
 import { createItem, getItemById, getAllItems, Inventory } from "../lib/inventory";
 
 const Page = () => {
+  console.log("api url : "+process.env.api_url);
   const [clientResult, setClientResult] = useState<string>("");
   const [repasResult, setRepasResult] = useState<string>("");
   const [inventoryResult, setInventoryResult] = useState<string>("");
@@ -89,7 +90,7 @@ const Page = () => {
     <div className="flex justify-evenly items-center h-screen">
       {/* Div 1: Client Testing */}
       <div className="w-[31vw] h-[95vh] rounded-lg bg-red-500 text-white font-bold flex flex-col justify-center items-center p-4">
-        <h2>Client API {process.env.api_url}</h2>
+        <h2>Client API </h2>
         <button
           className="bg-white text-red-500 p-2 rounded mt-4"
           onClick={handleTestClientGetAll}
