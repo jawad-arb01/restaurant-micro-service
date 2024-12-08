@@ -21,17 +21,20 @@ jobs:
           node-version: 22 # Specify the Node.js version
           cache: "npm"
 
-      # Step 3: Install dependencies
+      # Step 3: Navigate to the frontend folder and install dependencies
       - name: Install dependencies
         run: npm install
+        working-directory: ./frontend
 
-      # Step 4: Run build
+      # Step 4: Build the project
       - name: Build the project
         run: npm run build
+        working-directory: ./frontend
 
       # Step 5: Run tests
       - name: Run tests
-        run: npm run  test
+        run: npm run test
+        working-directory: ./frontend
 
       # Step 6: Deploy to Vercel (only if the build and tests pass)
       - name: Deploy to Vercel
