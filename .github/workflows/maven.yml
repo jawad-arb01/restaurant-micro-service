@@ -51,25 +51,25 @@ jobs:
           push: true
           tags: ${{ env.DOCKER_IMAGE_NAME_SERVICE3 }}:latest
 
-      - name: Log in to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      # - name: Log in to Azure
+      #   uses: azure/login@v1
+      #   with:
+      #     creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy client to Azure Web App
-        uses: azure/webapps-container-deploy@v1
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE1 }}
-          images: ${{ env.DOCKER_IMAGE_NAME_SERVICE1 }}:latest
+      # - name: Deploy client to Azure Web App
+      #   uses: azure/webapps-container-deploy@v1
+      #   with:
+      #     app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE1 }}
+      #     images: ${{ env.DOCKER_IMAGE_NAME_SERVICE1 }}:latest
 
-      - name: Deploy inventory to Azure Web App
-        uses: azure/webapps-container-deploy@v1
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE2 }}
-          images: ${{ env.DOCKER_IMAGE_NAME_SERVICE2 }}:latest
+      # - name: Deploy inventory to Azure Web App
+      #   uses: azure/webapps-container-deploy@v1
+      #   with:
+      #     app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE2 }}
+      #     images: ${{ env.DOCKER_IMAGE_NAME_SERVICE2 }}:latest
 
-      - name: Deploy repas to Azure Web App
-        uses: azure/webapps-container-deploy@v1
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE3 }}
-          images: ${{ env.DOCKER_IMAGE_NAME_SERVICE3 }}:latest
+      # - name: Deploy repas to Azure Web App
+      #   uses: azure/webapps-container-deploy@v1
+      #   with:
+      #     app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE3 }}
+      #     images: ${{ env.DOCKER_IMAGE_NAME_SERVICE3 }}:latest
