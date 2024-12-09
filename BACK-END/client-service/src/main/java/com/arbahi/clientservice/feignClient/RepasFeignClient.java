@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "repas-service", url = "http://localhost:8091/api/v1/repas")
+@FeignClient(name = "repas-service", url = "${repas.service.url}")
 public interface RepasFeignClient {
     @GetMapping("/{id}")
     Repas getRepasById(@PathVariable("id") Long id);
