@@ -40,6 +40,9 @@ jobs:
           push: true
           tags: ${{ env.DOCKER_IMAGE_NAME_SERVICE1 }}:latest
 
+      - name: Set execute permissions for mvnw
+        run: chmod +x ./BACK-END/Inventory-service/mvnw
+      
       - name: Build and Push Docker Image for inventory
         uses: docker/build-push-action@v4
         with:
@@ -47,6 +50,9 @@ jobs:
           push: true
           tags: ${{ env.DOCKER_IMAGE_NAME_SERVICE2 }}:latest
 
+      - name: Set execute permissions for mvnw
+        run: chmod +x ./BACK-END/repas-service/mvnw
+      
       - name: Build and Push Docker Image for repas
         uses: docker/build-push-action@v4
         with:
