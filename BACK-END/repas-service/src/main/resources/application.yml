@@ -15,3 +15,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+inventory:
+  service:
+    url: http://inventory-service:9092/api/v1/inventory

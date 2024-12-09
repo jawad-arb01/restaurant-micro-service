@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  client-service:
+    build: ./client-service
+    ports:
+      - "8080:8080"
+    networks:
+      - microservice-network
+    depends_on:
+      - repas-service
+
+  repas-service:
+    build: ./repas-service
+    ports:
+      - "8091:8091"
+    networks:
+      - microservice-network
+
+  inventory-service:
+    build: ./inventory-service
+    ports:
+      - "9092:9092"
+    networks:
+      - microservice-network
+
+networks:
+  microservice-network:
+    driver: bridge
