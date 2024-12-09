@@ -33,21 +33,21 @@ jobs:
       - name: Build and Push Docker Image for client
         uses: docker/build-push-action@v4
         with:
-          context: ./client
+          context: ./BACK-END/client-service
           push: true
           tags: ${{ env.DOCKER_IMAGE_NAME_SERVICE1 }}:latest
 
       - name: Build and Push Docker Image for inventory
         uses: docker/build-push-action@v4
         with:
-          context: ./inventory
+          context: ./BACK-END/inventory-service
           push: true
           tags: ${{ env.DOCKER_IMAGE_NAME_SERVICE2 }}:latest
 
       - name: Build and Push Docker Image for repas
         uses: docker/build-push-action@v4
         with:
-          context: ./repas
+          context: ./BACK-END/repas-service
           push: true
           tags: ${{ env.DOCKER_IMAGE_NAME_SERVICE3 }}:latest
 
