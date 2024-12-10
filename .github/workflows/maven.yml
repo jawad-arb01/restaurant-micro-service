@@ -67,25 +67,25 @@ jobs:
       #     tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C72BC1FA65EC446B8122FFC861F45D66 }}
       #     subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0B16F49212D64DC7976D7B5377B78892 }}
 
-      # - name: Log in to Azure
-      #   uses: azure/login@v1
-      #   with:
-      #     creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # - name: Deploy client to Azure Web App
-      #   uses: azure/webapps-container-deploy@v1
-      #   with:
-      #     app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE1 }}
-      #     images: ${{ env.DOCKER_IMAGE_NAME_SERVICE1 }}:latest
+      - name: Deploy client to Azure Web App
+        uses: azure/webapps-container-deploy@v1
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE1 }}
+          images: ${{ env.DOCKER_IMAGE_NAME_SERVICE1 }}:latest
 
-      # - name: Deploy inventory to Azure Web App
-      #   uses: azure/webapps-container-deploy@v1
-      #   with:
-      #     app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE2 }}
-      #     images: ${{ env.DOCKER_IMAGE_NAME_SERVICE2 }}:latest
+      - name: Deploy inventory to Azure Web App
+        uses: azure/webapps-container-deploy@v1
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE2 }}
+          images: ${{ env.DOCKER_IMAGE_NAME_SERVICE2 }}:latest
 
-      # - name: Deploy repas to Azure Web App
-      #   uses: azure/webapps-container-deploy@v1
-      #   with:
-      #     app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE3 }}
-      #     images: ${{ env.DOCKER_IMAGE_NAME_SERVICE3 }}:latest
+      - name: Deploy repas to Azure Web App
+        uses: azure/webapps-container-deploy@v1
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE3 }}
+          images: ${{ env.DOCKER_IMAGE_NAME_SERVICE3 }}:latest
