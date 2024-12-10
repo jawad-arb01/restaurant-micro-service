@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - main
+      - main
 
 env:
   AZURE_WEBAPP_NAME_SERVICE1: client-service-app
-  AZURE_WEBAPP_NAME_SERVICE2: invenroty-service-app
+  AZURE_WEBAPP_NAME_SERVICE2: inventory-service-app
   AZURE_WEBAPP_NAME_SERVICE3: repas-service-app
   DOCKER_IMAGE_NAME_SERVICE1: arb928/client
   DOCKER_IMAGE_NAME_SERVICE2: arb928/inventory
@@ -60,32 +60,25 @@ jobs:
           push: true
           tags: ${{ env.DOCKER_IMAGE_NAME_SERVICE3 }}:latest
 
-      # - name: Login to Azure
-      #   uses: azure/login@v2
-      #   with:
-      #     client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_EB587F7CDF9144C0ADA7EE4B3C5A6938 }}
-      #     tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C72BC1FA65EC446B8122FFC861F45D66 }}
-      #     subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0B16F49212D64DC7976D7B5377B78892 }}
-
       - name: Log in to Azure
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy client to Azure Web App
-        uses: azure/webapps-container-deploy@v1
+        uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE1 }}
           images: ${{ env.DOCKER_IMAGE_NAME_SERVICE1 }}:latest
 
       - name: Deploy inventory to Azure Web App
-        uses: azure/webapps-container-deploy@v1
+        uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE2 }}
           images: ${{ env.DOCKER_IMAGE_NAME_SERVICE2 }}:latest
 
       - name: Deploy repas to Azure Web App
-        uses: azure/webapps-container-deploy@v1
+        uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME_SERVICE3 }}
           images: ${{ env.DOCKER_IMAGE_NAME_SERVICE3 }}:latest
