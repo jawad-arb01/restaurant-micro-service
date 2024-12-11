@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/clients")
+@CrossOrigin
 public class ClientController {
 
     private final ClientService clientService;
@@ -26,7 +27,7 @@ public class ClientController {
         return clientService.getClientById(id);
     }
 
-    @GetMapping("/getall")
+    @GetMapping
     public List<Client> getAllClients() {
         return clientService.getAllClients();
     }
