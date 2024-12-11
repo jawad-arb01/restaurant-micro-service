@@ -26,7 +26,7 @@ public class ClientController {
         return clientService.getClientById(id);
     }
 
-    @GetMapping
+    @GetMapping("/getall")
     public List<Client> getAllClients() {
         return clientService.getAllClients();
     }
