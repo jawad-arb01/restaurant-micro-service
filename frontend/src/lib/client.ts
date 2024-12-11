@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://client-service-app.azurewebsites.net/api/v1/" + "/clients";
+const API_BASE_URL = "https://client"+process.env.NEXT_PUBLIC_APIURL + "/clients";
 
 // Define TypeScript interfaces for the DTOs and entities
 export interface Client {

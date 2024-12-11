@@ -7,7 +7,7 @@ import { createRepas, getRepasById, getAllRepas, Repas } from "../lib/repas";
 import { createItem, getItemById, getAllItems, Inventory } from "../lib/inventory";
 
 const Page = () => {
-  console.log("api url : "+process.env.api_url);
+  //console.log("api url : "+ process.env.NEXT_PUBLIC_APIURL);
   const [clientResult, setClientResult] = useState<string>("");
   const [repasResult, setRepasResult] = useState<string>("");
   const [inventoryResult, setInventoryResult] = useState<string>("");
@@ -25,10 +25,10 @@ const Page = () => {
   const handleTestClientPost = async () => {
     try {
       const newClient: Client = {
-        name: faker.name.fullName(),
+        name: faker.person.fullName(),
         email: faker.internet.email(),
         phone: faker.phone.number(),
-        address: faker.address.streetAddress(),
+        address: faker.location.streetAddress(),
       };
       const client = await createClient(newClient);
       setClientResult(JSON.stringify(client, null, 2));
