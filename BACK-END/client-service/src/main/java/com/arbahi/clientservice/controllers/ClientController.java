@@ -46,6 +46,9 @@ public class ClientController {
         return clientService.getAllMeals();
     }
 
-
+    @DeleteMapping("/delete/{id}")
+    public void deleteClient(@PathVariable Long id) {
+        clientService.deleteClient(id);
+    }
 
 }
