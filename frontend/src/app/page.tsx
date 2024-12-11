@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { faker } from "@faker-js/faker";
-import { createClient, getClientById, getAllClients, Client } from "../lib/client";
-import { createRepas, getRepasById, getAllRepas, Repas } from "../lib/repas";
-import { createItem, getItemById, getAllItems, Inventory } from "../lib/inventory";
+import { createClient, getAllClients, Client } from "../lib/client";
+import { createRepas, getAllRepas, Repas } from "../lib/repas";
+import { createItem, getAllItems, Inventory } from "../lib/inventory";
 
 const Page = () => {
   //console.log("api url : "+ process.env.NEXT_PUBLIC_APIURL);
