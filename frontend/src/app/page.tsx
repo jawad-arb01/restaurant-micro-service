@@ -50,10 +50,9 @@ const Page = () => {
   const handleTestRepasPost = async () => {
     try {
       const newRepas: Repas = {
-        id: faker.number.int({min: 1 , max: 5}),
-        name: faker.commerce.productName(),
+        name: faker.food.dish(),
         ingredients: {
-          [faker.commerce.productAdjective()]: faker.number.int({ min: 1, max: 5 }),
+          [faker.food.ingredient()]: faker.number.int({ min: 1, max: 20 }),
         },
       };
       const repas = await createRepas(newRepas);
@@ -76,7 +75,7 @@ const Page = () => {
   const handleTestInventoryPost = async () => {
     try {
       const newItem: Inventory = {
-        name: faker.commerce.productName(),
+        name: faker.food.ingredient(),
         quantity: faker.number.int({ min: 1, max: 100 }),
       };
       const item = await createItem(newItem);
