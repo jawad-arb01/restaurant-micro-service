@@ -50,9 +50,9 @@ const Page = () => {
   const handleTestRepasPost = async () => {
     try {
       const newRepas: Repas = {
-        name: faker.food.dish(),
+        name: "pizza fromage",
         ingredients: {
-          [faker.food.ingredient()]: faker.number.int({ min: 1, max: 20 }),
+        "tomate": 1, "onion":2
         },
       };
       const repas = await createRepas(newRepas);
