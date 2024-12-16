@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/clients")
-@CrossOrigin
 public class ClientController {
 
     private final ClientService clientService;
